@@ -3,7 +3,7 @@ import React from "react";
 const style = {
   backgroundColor: "#c6ffe2",
   width: "400px",
-  height: "200px",
+  minHeight: "200px",
   padding: "8px",
   margin: "8px",
   borderRadius: "8px"
