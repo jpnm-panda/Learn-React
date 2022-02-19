@@ -37,7 +37,7 @@ export const App = () => {
         </ul>
       </div>
       <div className="complete-area">
-        <p>完了のTODO</p>
+      <p className="title">完了のTODO</p>
         <ul>
           {completeTodos.map((todo) => {
             return (
