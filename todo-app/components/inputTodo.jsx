@@ -1,5 +1,3 @@
-import React from "react";
-
 const style = {
   backgroundColor: "#c1ffff",
   width: "400px",
@@ -10,10 +8,15 @@ const style = {
 };
 
 export const InputTodo = (props) => {
-  const { todoText, onChange, onClick } = props;
+  const { todoText, onChange, onClick, disabled } = props;
   return (
     <div style={style}>
-      <input placeholder="TODOを入力" value={todoText} onChange={onChange} />
+      <input
+        disabled={disabled}
+        placeholder="TODOを入力"
+        value={todoText}
+        onChange={onChange}
+      />
       <button onClick={onClick}>追加</button>
     </div>
   );
