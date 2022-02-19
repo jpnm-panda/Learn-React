@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
-import { InputTodo } from "./components/inputTodo";
+import { InputTodo } from "./components/InputTodo";
 
 export const App = () => {
   const [incompleteTodos, setIncompleteTodos] = useState([]);
