@@ -40,6 +40,7 @@ export const App = () => {
     <>
       <InputTodo
         todoText={todoText}
+        text={"追加"}
         onChange={onChangeTodoText}
         onClick={onClickAdd}
         disabled={incompleteTodos.length >= 5}
