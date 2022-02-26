@@ -3,6 +3,8 @@ import "../src/index.css"
 import { InputTodo } from "../src/components/inputTodo";
 import { IncompleteTodos } from "../src/components/IncompleteTodos";
 import { CompleteTodos } from "../src/components/Complete";
+import AppContext from './context/AppContext';
+import B from './components/atoms/B';
 
 export const App = () => {
   const [incompleteTodos, setIncompleteTodos] = useState([]);
@@ -38,6 +40,8 @@ export const App = () => {
   };
   return (
     <>
+      <AppContext.Provider value={'value from app.js'}>
+        <B />
       <InputTodo
         todoText={todoText}
         text={"追加"}
@@ -55,7 +59,8 @@ export const App = () => {
         onClickComplete={onClickComplete}
         onClickDelete={onClickDelete}
       />
-      <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
+        <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
+       </AppContext.Provider>
     </>
   );
 };
