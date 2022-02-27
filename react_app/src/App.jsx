@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import "../src/index.css"
 import { InputTodo } from "../src/components/inputTodo";
 import { IncompleteTodos } from "../src/components/IncompleteTodos";
@@ -6,6 +6,23 @@ import { CompleteTodos } from "../src/components/Complete";
 import AppContext from './context/AppContext';
 import B from './components/atoms/B';
 import BasicReducer from './components/atoms/BasicReducer';
+import C from "./components/atoms/C";
+
+
+const initialState = 0
+const reducer = (currentState, action) => {
+  switch(action) {
+    case 'add_1':
+      return currentState + 1
+    case 'multiple_3':
+      return currentState * 3
+    case 'reset':
+      return initialState
+    default:
+      return currentState
+  }
+}
+
 export const App = () => {
   const [incompleteTodos, setIncompleteTodos] = useState([]);
   const [completeTodos, setCompleteTodos] = useState([]);
@@ -38,13 +55,14 @@ export const App = () => {
     setCompleteTodos(newCompleteTodos);
     setIncompleteTodos(newIncompleteTodos);
   };
+  const [count, dispatch] = useReducer(reducer, initialState)
+
   return (
     <>
-      
-      <AppContext.Provider value={'value from app.js'}>
+      <AppContext.Provider value={{countProvided: count, dispatchProvided: dispatch}}>
+        Count {count}
         <B />
-        
-        <BasicReducer />
+      </AppContext.Provider>
         
       <InputTodo
         todoText={todoText}
@@ -64,7 +82,6 @@ export const App = () => {
         onClickDelete={onClickDelete}
       />
         <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
-       </AppContext.Provider>
     </>
   );
 };

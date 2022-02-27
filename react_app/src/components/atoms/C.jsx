@@ -3,11 +3,11 @@ import AppContext from '../../context/AppContext'
 
 
 const C = () => {
-  const value = useContext(AppContext)
+  const { dispatchProvided } = useContext(AppContext)
   return (
       <div>
-          <h1>C</h1>
-          {value}
+      <h1>C</h1>
+      <button onClick={()=> dispatchProvided('add_1')}>Add_1</button>
      </div>
   )
 }
