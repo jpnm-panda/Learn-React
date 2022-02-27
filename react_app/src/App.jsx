@@ -5,7 +5,7 @@ import { IncompleteTodos } from "../src/components/IncompleteTodos";
 import { CompleteTodos } from "../src/components/Complete";
 import AppContext from './context/AppContext';
 import B from './components/atoms/B';
-
+import BasicReducer from './components/atoms/BasicReducer';
 export const App = () => {
   const [incompleteTodos, setIncompleteTodos] = useState([]);
   const [completeTodos, setCompleteTodos] = useState([]);
@@ -40,8 +40,12 @@ export const App = () => {
   };
   return (
     <>
+      
       <AppContext.Provider value={'value from app.js'}>
         <B />
+        
+        <BasicReducer />
+        
       <InputTodo
         todoText={todoText}
         text={"追加"}
