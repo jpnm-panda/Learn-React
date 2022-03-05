@@ -1,5 +1,6 @@
-import React from "react";
-import { useSelector } from 'react-redux';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { completedTodo } from "../../action";
 
 const style = {
   backgroundColor: "#c6ffe2",
@@ -11,15 +12,29 @@ const style = {
 };
 
 export const IncompleteTodoList = () => {
+
   const todos = useSelector((state) => state.todos);
+
+  const dispatch = useDispatch();
+  
+  const onClickComplete = (id) => {
+    console.log(id);
+    dispatch(completedTodo(id));
+  }
+
   return (
     <div style={style}>
       <ul>
         {todos
-          .filter((list) => list.complete === false)
-          .map((todo, index) => (
-              <li key={index}>{todo.text}</li>
-          ))}
+          .filter((todos) => todos.complete === false)
+          .map((todo, index) => {
+            return (
+              <li key={index} className="list-row">
+                <p>{todo.text}</p>
+                <button onClick={() => onClickComplete(todo.id)}>完了</button>
+              </li>
+            );
+            })}
         </ul>
     </div>
   );
