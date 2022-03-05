@@ -1,26 +1,10 @@
 import { createStore } from "redux";
+import { Reducer } from "./reducer";
 
-// Todo の状態を保存するstore を作る
+const store = createStore(Reducer);
 
-const initialState = {
-    todos: [
-        {
-            id: 1,
-            text: "hoge",
-            complete: false
-        },
-        {
-            id: 2,
-            text: "hige",
-            complete: true
-        }
-    ]
-};
+store.subscribe(() => {
+  console.log(store.getState());
+});
 
-const reducer = (state = initialState, action) => {
-    return state;
-};
-
-const store = createStore(reducer);
-
-export default store;
+export default store
