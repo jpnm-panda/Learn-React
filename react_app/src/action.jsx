@@ -25,3 +25,11 @@ export const deletedTodo = (id) => ({
     type: DELETED_TODO,
     payload: id
 });
+
+// 完了取り消し機能のAction を定義
+export const RETURNED_TODO = "RETURNED_TODO";
+
+export const returnedTodo = (id) => ({
+    type: RETURNED_TODO,
+    payload: id
+});
