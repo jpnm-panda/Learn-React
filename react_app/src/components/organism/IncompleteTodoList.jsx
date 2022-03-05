@@ -18,7 +18,6 @@ export const IncompleteTodoList = () => {
   const dispatch = useDispatch();
   
   const onClickComplete = (id) => {
-    console.log(id);
     dispatch(completedTodo(id));
   }
 
