@@ -1,25 +1,19 @@
 import React from "react";
+import { Input } from "../atoms/Input";
+import { Button } from "../atoms/Button";
 
-const style = {
-  backgroundColor: "#c1ffff",
-  width: "400px",
-  height: "30px",
-  padding: "8px",
-  margin: "8px",
-  borderRadius: "8px"
-};
-
-export const InputTodo = (props) => {
+export const Form = (props) => {
   const { todoText, onChange, onClick, disabled } = props;
   return (
-    <div style={style}>
-      <Form
+    <div>
+      <Input
         disabled={disabled}
         placeholder="TODOを入力"
         value={todoText}
         onChange={onChange}
-        onClick={onClick}
       />
+
+      <Button onClick={onClick} text={"追加"} />
     </div>
   );
 };
