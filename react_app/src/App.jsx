@@ -1,7 +1,9 @@
 import React, { useState, useReducer } from "react";
 import "../src/index.css"
+import { InputTodo } from "./components/organism/inputTodo";
 import { CompleteTodoList } from "./components/organism/CompleteTodoList";
 import { IncompleteTodoList } from "./components/organism/IncompleteTodoList";
+import store from "./store";
 
 // import { TodoItem } from "./components/molecules/TodoItem"
 
@@ -11,9 +13,10 @@ export const App = () => {
 
   return (
     <>
-      <div>hoge</div> 
-      <CompleteTodoList></CompleteTodoList>
+      <InputTodo></InputTodo>
       <IncompleteTodoList></IncompleteTodoList>
+      <CompleteTodoList></CompleteTodoList>
+      
     </>
   );
 };
