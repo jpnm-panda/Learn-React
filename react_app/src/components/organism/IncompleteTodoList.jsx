@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { completedTodo } from "../../action";
+import { completedTodo, deletedTodo } from "../../action";
 
 const style = {
   backgroundColor: "#c6ffe2",
@@ -22,6 +22,10 @@ export const IncompleteTodoList = () => {
     dispatch(completedTodo(id));
   }
 
+  const onClickDelete = (id) => {
+    dispatch(deletedTodo(id))
+  }
+
   return (
     <div style={style}>
       <ul>
@@ -32,6 +36,7 @@ export const IncompleteTodoList = () => {
               <li key={index} className="list-row">
                 <p>{todo.text}</p>
                 <button onClick={() => onClickComplete(todo.id)}>完了</button>
+                <button onClick={() => onClickDelete(todo.id)}>削除</button>
               </li>
             );
             })}

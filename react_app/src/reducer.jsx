@@ -1,18 +1,7 @@
-import { ADD_TODO, COMPLETED_TODO } from "./action";
+import { ADD_TODO, COMPLETED_TODO, DELETED_TODO } from "./action";
 
 const initialState = {
-    todos: [
-        {
-            id: Math.random(),
-            text: "hoge",
-            complete: true
-        },
-        {
-            id: Math.random(),
-            text: "hige",
-            complete: false
-        }
-    ]
+    todos: []
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -30,6 +19,10 @@ export const Reducer = (state = initialState, action) => {
                         complete: true
                     };
                 }),
+            }
+        case DELETED_TODO:
+            return {
+                todos: state.todos.filter((todos) => todos.id !== action.payload),
             }
         default:
             return state
