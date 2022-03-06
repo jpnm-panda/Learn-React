@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../../action";
+import { addTodo } from "../../redux/action";
 import { Form } from "../molecules/Form";
 
 const style = {
