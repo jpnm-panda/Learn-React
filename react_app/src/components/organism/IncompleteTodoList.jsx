@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { completedTodo, deletedTodo } from "../../action";
 import { useButtonContext } from "../../context/ButtonContext";

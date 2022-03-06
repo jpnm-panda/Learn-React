@@ -1,9 +1,8 @@
-import React, { useState, useReducer } from "react";
+import React from "react";
 import "../src/index.css"
 import { InputTodo } from "./components/organism/InputTodo";
 import { CompleteTodoList } from "./components/organism/CompleteTodoList";
 import { IncompleteTodoList } from "./components/organism/IncompleteTodoList";
-import store from "./store";
 import { ButtonContextProvider } from "./context/ButtonContext";
 
 
