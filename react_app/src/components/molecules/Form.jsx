@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "../atoms/Input";
 import { Button } from "../atoms/Button";
+import { useButtonContext } from "../../context/ButtonContext";
 
 export const Form = (props) => {
-  const { todoText, onChange, onClick, disabled } = props;
+  const { todoText, onClick, onChange } = props;
+  const { addButtonText } = useButtonContext();
+
   return (
     <div>
       <Input
-        disabled={disabled}
-        placeholder="TODOを入力"
         value={todoText}
         onChange={onChange}
       />
 
-      <Button onClick={onClick} text={"追加"} />
+      <Button
+        onClick={onClick}
+        buttonText={addButtonText}
+      />
     </div>
   );
 };
