@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { completedTodo, deletedTodo } from "../../action";
+import { completedTodo, deletedTodo } from "../../redux/action";
+import { useButtonContext } from "../../context/ButtonContext";
+import { Button } from "../atoms/Button";
 
 const style = {
   backgroundColor: "#c6ffe2",
@@ -25,6 +27,8 @@ export const IncompleteTodoList = () => {
     dispatch(deletedTodo(id))
   }
 
+  const { completeButtonText, deleteButtonText } = useButtonContext();
+
   return (
     <div style={style}>
       <ul>
@@ -34,12 +38,16 @@ export const IncompleteTodoList = () => {
             return (
               <li key={index} className="list-row">
                 <p>{todo.text}</p>
-                <button onClick={() => onClickComplete(todo.id)}>完了</button>
-                <button onClick={() => onClickDelete(todo.id)}>削除</button>
+                <Button
+                  buttonText={completeButtonText}
+                  onClick={() => onClickComplete(todo.id)} />
+                <Button
+                  buttonText={deleteButtonText}
+                  onClick={() => onClickDelete(todo.id)}/>
               </li>
             );
             })}
-        </ul>
+      </ul>
     </div>
   );
 };

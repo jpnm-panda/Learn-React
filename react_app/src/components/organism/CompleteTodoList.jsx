@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { returnedTodo } from "../../action";
+import { returnedTodo } from "../../redux/action";
+import { useButtonContext } from "../../context/ButtonContext";
+import { Button } from "../atoms/Button";
 
 const style = {
   backgroundColor: "#ffffe0",
@@ -21,6 +23,8 @@ export const CompleteTodoList = () => {
     dispatch(returnedTodo(id));
   }
 
+  const { returnButtonText } = useButtonContext();
+
   return (
     <div style={style}>
       <ul>
@@ -30,7 +34,9 @@ export const CompleteTodoList = () => {
             return (
               <li key={index} className="list-row">
                 <p>{todo.text}</p>
-                <button onClick={() => onClickReturn(todo.id)}>戻す</button>
+                <Button
+                  buttonText={returnButtonText}
+                  onClick={() => onClickReturn(todo.id)}/>
               </li>
             );
             })}

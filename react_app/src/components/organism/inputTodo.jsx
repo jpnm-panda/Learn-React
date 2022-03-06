@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../../action";
+import { addTodo } from "../../redux/action";
+import { Form } from "../molecules/Form";
 
 const style = {
   backgroundColor: "#c1ffff",
@@ -23,18 +24,18 @@ export const InputTodo = () => {
     if (todoText === "") return;
     dispatch(addTodo(todoText))
     setTodoText("");
+    console.log(setTodoText)
   };
-
+  
   return (
     <div style={style}>
-      <input
-        placeholder="TODOを入力"
-        onChange={onChange}
-        value={todoText}
-      ></input>
-      <button
-        onClick={onClickAdd}
-      >追加</button>
+      <Form
+      value={todoText}
+      onChange={onChange}
+      onClick={onClickAdd}
+      >
+      </Form>
     </div>
+    
   );
 };
